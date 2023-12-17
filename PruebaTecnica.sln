@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnica.WebApp", "Pru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{DE6D447A-3D36-4950-BE0C-03A72BDDF4EB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{B2C37166-648E-47B7-ABD4-F42FE627892C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnica.WebApi", "PruebaTecnica.WebApi\PruebaTecnica.WebApi.csproj", "{F3E65DE4-3B57-47FF-9915-CD24CFB734E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{120C5EDF-451C-4FDB-9415-413029E6CED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{120C5EDF-451C-4FDB-9415-413029E6CED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{120C5EDF-451C-4FDB-9415-413029E6CED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3E65DE4-3B57-47FF-9915-CD24CFB734E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E65DE4-3B57-47FF-9915-CD24CFB734E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E65DE4-3B57-47FF-9915-CD24CFB734E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E65DE4-3B57-47FF-9915-CD24CFB734E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{120C5EDF-451C-4FDB-9415-413029E6CED6} = {DE6D447A-3D36-4950-BE0C-03A72BDDF4EB}
+		{F3E65DE4-3B57-47FF-9915-CD24CFB734E0} = {B2C37166-648E-47B7-ABD4-F42FE627892C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5314A9A3-73B1-4C39-A2EB-D66E441E4C6F}
