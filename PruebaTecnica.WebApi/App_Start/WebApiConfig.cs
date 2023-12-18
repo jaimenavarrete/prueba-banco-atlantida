@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace PruebaTecnica.WebApi
 {
@@ -19,6 +17,11 @@ namespace PruebaTecnica.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Serializar a JSON todas las respuestas del servidor
+            var formateador = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            formateador.SerializerSettings.ContractResolver = 
+                new CamelCasePropertyNamesContractResolver();
         }
     }
 }
