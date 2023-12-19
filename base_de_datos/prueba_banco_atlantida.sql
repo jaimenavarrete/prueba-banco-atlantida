@@ -127,3 +127,42 @@ BEGIN
 	FROM Cuentas
 END
 GO
+
+-- Obtener cuenta
+CREATE PROCEDURE spObtenerCuenta
+AS
+BEGIN
+	SELECT TOP(1)
+		Id,
+		NombreTitular,
+		NumeroTarjeta
+	FROM Cuentas
+END
+GO
+
+-- Obtener listado de compras
+CREATE PROCEDURE spObtenerCompras
+	@FechaActual DATETIME 
+AS
+BEGIN
+	IF(@FechaActual IS NULL)
+		BEGIN
+			SELECT
+				Id,
+				Descripcion,
+				Monto,
+				FechaCompra
+			FROM Compras
+		END
+	ELSE
+		BEGIN
+			SELECT
+				Id,
+				Descripcion,
+				Monto,
+				FechaCompra
+			FROM Compras
+			WHERE YEAR(FechaCompra) = YEAR(@FechaActual) AND MONTH(FechaCompra) = MONTH(@FechaActual)
+		END
+END
+GO
