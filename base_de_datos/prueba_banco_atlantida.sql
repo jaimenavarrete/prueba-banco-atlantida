@@ -98,7 +98,7 @@ VALUES (
 );
 GO
 
--- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS
+-- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS PARA OBTENER DATOS
 
 -- Obtener estado cuenta
 CREATE PROCEDURE spObtenerEstadoCuenta
@@ -189,5 +189,46 @@ BEGIN
 	FROM Pagos
 	WHERE YEAR(FechaPago) = @Anio AND MONTH(FechaPago) = @Mes
 	ORDER BY FechaTransaccion DESC
+END
+GO
+
+-- Obtener configuraciones de porcentaje
+CREATE PROCEDURE spObtenerConfiguraciones
+AS
+BEGIN
+	SELECT TOP(1)
+		Id,
+		PorcentajeInteres,
+		PorcentajeSaldoMinimo
+	FROM Configuraciones
+END
+GO
+
+-- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS PARA INSERTAR DATOS
+
+-- Insertar compra
+CREATE PROCEDURE spInsertarCompra
+	@Id CHAR(36),
+	@Descripcion TEXT,
+	@Monto DECIMAL(10, 4),
+	@FechaCompra DATETIME
+AS
+BEGIN
+	INSERT INTO Compras (Id, Descripcion, Monto, FechaCompra)
+	VALUES
+	(@Id, @Descripcion, @Monto, @FechaCompra)
+END
+GO
+
+-- Insertar pago
+CREATE PROCEDURE spInsertarVenta
+	@Id CHAR(36),
+	@Monto DECIMAL(10, 4),
+	@FechaPago DATETIME
+AS
+BEGIN
+	INSERT INTO Pagos (Id, Monto, FechaPago)
+	VALUES
+	(@Id, @Monto, @FechaPago)
 END
 GO
