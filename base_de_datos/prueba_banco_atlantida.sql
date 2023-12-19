@@ -166,3 +166,28 @@ BEGIN
 		END
 END
 GO
+
+-- Obtener listado de transacciones
+CREATE PROCEDURE spObtenerTransaccionesPorMes
+	@Anio INT,
+	@Mes INT
+AS
+BEGIN
+	SELECT
+		Id,
+		Descripcion,
+		Monto = Monto * -1,
+		FechaTransaccion = FechaCompra
+	FROM Compras
+	WHERE YEAR(FechaCompra) = @Anio AND MONTH(FechaCompra) = @Mes
+	UNION ALL
+	SELECT
+		Id,
+		Descripcion = 'PAGO DE TARJETA',
+		Monto,
+		FechaTransaccion = FechaPago
+	FROM Pagos
+	WHERE YEAR(FechaPago) = @Anio AND MONTH(FechaPago) = @Mes
+	ORDER BY FechaTransaccion DESC
+END
+GO
