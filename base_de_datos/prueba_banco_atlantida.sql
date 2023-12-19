@@ -1,4 +1,7 @@
--- Prueba Técnica de Banco Atlántida
+-- PRUEBA TÉCNICA DE BANCO ATLÁNTIDA
+----------------------------------------------------
+
+-- CREACIÓN DE BASE DE DATOS
 
 CREATE DATABASE BancoAtlantida
 GO
@@ -55,7 +58,7 @@ CREATE TRIGGER IncrementarSaldoTotalTrigger
 ON Compras
 FOR INSERT
 AS
-	DECLARE @CuentaId INT = (SELECT CuentaId FROM inserted)
+	DECLARE @CuentaId CHAR(36) = (SELECT CuentaId FROM inserted)
 	DECLARE @Monto DECIMAL(10,4) = (SELECT Monto FROM inserted)
 
 	UPDATE Cuentas SET SaldoTotal = SaldoTotal + @Monto
@@ -67,7 +70,7 @@ CREATE TRIGGER ReducirSaldoTotalTrigger
 ON Pagos
 FOR INSERT
 AS
-	DECLARE @CuentaId INT = (SELECT CuentaId FROM inserted)
+	DECLARE @CuentaId CHAR(36) = (SELECT CuentaId FROM inserted)
 	DECLARE @Monto DECIMAL(10,4) = (SELECT Monto FROM inserted)
 
 	UPDATE Cuentas SET SaldoTotal = SaldoTotal - @Monto
@@ -93,4 +96,34 @@ VALUES (
 	0.05,
 	0.20
 );
+GO
+
+-- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS
+
+-- Obtener estado cuenta
+CREATE PROCEDURE spObtenerEstadoCuenta
+AS
+BEGIN
+	DECLARE @PorcentajeInteres DECIMAL(5, 2) = (SELECT PorcentajeInteres FROM Configuraciones);
+	DECLARE @PorcentajeSaldoMinimo DECIMAL(5, 2) = (SELECT PorcentajeSaldoMinimo FROM Configuraciones);
+
+	DECLARE @FechaMesActual DATETIME = GETDATE()
+	DECLARE @FechaMesAnterior DATETIME = DATEADD(MONTH, -1, @FechaMesActual)
+
+	SELECT TOP(1)
+		Id,
+		NombreTitular,
+		NumeroTarjeta,
+		SaldoTotal,
+		LimiteCredito,
+		SaldoDisponible = LimiteCredito - SaldoTotal,
+		MontoComprasMesAnterior = 
+			ISNULL((SELECT SUM(Monto) FROM Compras WHERE YEAR(FechaCompra) = YEAR(@FechaMesAnterior) AND MONTH(FechaCompra) = MONTH(@FechaMesAnterior)), 0),
+		MontoComprasMesActual = 
+			ISNULL((SELECT SUM(Monto) FROM Compras WHERE YEAR(FechaCompra) = YEAR(@FechaMesActual) AND MONTH(FechaCompra) = MONTH(@FechaMesActual)), 0),
+		InteresBonificable = SaldoTotal * @PorcentajeInteres,
+		CuotaMinima = SaldoTotal * @PorcentajeSaldoMinimo,
+		SaldoTotalConInteres = SaldoTotal * (1 + @PorcentajeInteres)
+	FROM Cuentas
+END
 GO
