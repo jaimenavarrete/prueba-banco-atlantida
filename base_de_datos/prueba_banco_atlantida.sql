@@ -223,12 +223,13 @@ CREATE PROCEDURE spInsertarCompra
 	@Id CHAR(36),
 	@Descripcion TEXT,
 	@Monto DECIMAL(10, 4),
-	@FechaCompra DATETIME
+	@FechaCompra DATETIME,
+	@CuentaId CHAR(36)
 AS
 BEGIN
-	INSERT INTO Compras (Id, Descripcion, Monto, FechaCompra)
+	INSERT INTO Compras (Id, Descripcion, Monto, FechaCompra, CuentaId)
 	VALUES
-	(@Id, @Descripcion, @Monto, @FechaCompra)
+	(@Id, @Descripcion, @Monto, @FechaCompra, @CuentaId)
 END
 GO
 
@@ -236,11 +237,12 @@ GO
 CREATE PROCEDURE spInsertarPago
 	@Id CHAR(36),
 	@Monto DECIMAL(10, 4),
-	@FechaPago DATETIME
+	@FechaPago DATETIME,
+	@CuentaId CHAR(36)
 AS
 BEGIN
-	INSERT INTO Pagos (Id, Monto, FechaPago)
+	INSERT INTO Pagos (Id, Monto, FechaPago, CuentaId)
 	VALUES
-	(@Id, @Monto, @FechaPago)
+	(@Id, @Monto, @FechaPago, @CuentaId)
 END
 GO

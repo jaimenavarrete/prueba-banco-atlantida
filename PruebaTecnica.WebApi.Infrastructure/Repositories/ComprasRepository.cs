@@ -23,6 +23,7 @@ namespace PruebaTecnica.WebApi.Infrastructure.Repositories
                 comando.Parameters.Add(new SqlParameter("@Descripcion", compra.Descripcion));
                 comando.Parameters.Add(new SqlParameter("@Monto", compra.Monto));
                 comando.Parameters.Add(new SqlParameter("@FechaCompra", compra.FechaTransaccion));
+                comando.Parameters.Add(new SqlParameter("@CuentaId", "454a540a-f481-430c-a7ce-6a1516732ff4"));
 
                 await conexion.OpenAsync();
 

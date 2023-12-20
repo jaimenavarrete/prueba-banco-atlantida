@@ -21,7 +21,8 @@ namespace PruebaTecnica.WebApi.Infrastructure.Repositories
                 // Parametros de procedimiento almacenado
                 comando.Parameters.Add(new SqlParameter("@Id", pago.Id));
                 comando.Parameters.Add(new SqlParameter("@Monto", pago.Monto));
-                comando.Parameters.Add(new SqlParameter("@FechaCompra", pago.FechaTransaccion));
+                comando.Parameters.Add(new SqlParameter("@FechaPago", pago.FechaTransaccion));
+                comando.Parameters.Add(new SqlParameter("@CuentaId", "454a540a-f481-430c-a7ce-6a1516732ff4"));
 
                 await conexion.OpenAsync();
 
