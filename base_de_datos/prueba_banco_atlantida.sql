@@ -206,6 +206,18 @@ GO
 
 -- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS PARA INSERTAR DATOS
 
+-- Modificar configuraciones
+CREATE PROCEDURE spModificarConfiguraciones
+	@PorcentajeInteres DECIMAL(5,2),
+	@PorcentajeSaldoMinimo DECIMAL(5,2)
+AS
+BEGIN
+	UPDATE Configuraciones SET 
+		PorcentajeInteres = @PorcentajeInteres,
+		@PorcentajeSaldoMinimo = @PorcentajeSaldoMinimo
+END
+GO
+
 -- Insertar compra
 CREATE PROCEDURE spInsertarCompra
 	@Id CHAR(36),

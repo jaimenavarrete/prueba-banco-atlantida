@@ -6,5 +6,7 @@ namespace PruebaTecnica.WebApi.Core.Interfaces.Repositories
     public interface IConfigsRepository
     {
         Task<Configuraciones> ObtenerConfigs();
+
+        Task ModificarConfigs(Configuraciones configs);
     }
 }
