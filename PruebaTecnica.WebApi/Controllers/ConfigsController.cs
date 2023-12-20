@@ -14,12 +14,18 @@ namespace PruebaTecnica.WebApi.Controllers
             _configsService = configsService;
         }
 
-        // GET: api/Configs
-        public async Task<Configuraciones> Get()
+        [HttpGet]
+        public async Task<Configuraciones> ObtenerConfigs()
         {
             var configs = await _configsService.ObtenerConfigs();
 
             return configs;
+        }
+
+        [HttpPut]
+        public async Task ModificarConfigs(Configuraciones configs)
+        {
+            await _configsService.ModificarConfigs(configs);
         }
     }
 }

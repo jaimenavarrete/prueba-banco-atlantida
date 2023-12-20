@@ -18,5 +18,10 @@ namespace PruebaTecnica.WebApi.Core.Services
         {
             return await _configsRepository.ObtenerConfigs();
         }
+
+        public async Task ModificarConfigs(Configuraciones configs)
+        {
+            await _configsRepository.ModificarConfigs(configs);
+        }
     }
 }
