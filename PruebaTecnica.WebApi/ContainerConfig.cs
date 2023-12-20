@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using PruebaTecnica.WebApi.Core.Interfaces.Repositories;
+using PruebaTecnica.WebApi.Infrastructure.Repositories;
 using System.Reflection;
 using System.Web.Http;
 
@@ -9,6 +11,8 @@ namespace PruebaTecnica.WebApi
     {
         private static ContainerBuilder RegisterDependencies(ContainerBuilder builder)
         {
+            builder.RegisterType<CuentasRepository>().As<ICuentasRepository>();
+
             return builder;
         }
 

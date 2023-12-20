@@ -47,6 +47,7 @@
     <Compile Include="Entities\EstadoCuenta.cs" />
     <Compile Include="Entities\Pago.cs" />
     <Compile Include="Entities\Transaccion.cs" />
+    <Compile Include="Interfaces\Repositories\ICuentasRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
