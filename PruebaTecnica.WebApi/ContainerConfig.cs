@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using PruebaTecnica.WebApi.Core.Interfaces.Repositories;
+using PruebaTecnica.WebApi.Core.Interfaces.Tools;
+using PruebaTecnica.WebApi.Infrastructure.Others;
 using PruebaTecnica.WebApi.Infrastructure.Repositories;
 using System.Reflection;
 using System.Web.Http;
@@ -11,7 +13,11 @@ namespace PruebaTecnica.WebApi
     {
         private static ContainerBuilder RegisterDependencies(ContainerBuilder builder)
         {
+            // Repositorios
             builder.RegisterType<CuentasRepository>().As<ICuentasRepository>();
+
+            // Otros
+            builder.RegisterType<EncriptadorService>().As<IEncriptadorService>();
 
             return builder;
         }
