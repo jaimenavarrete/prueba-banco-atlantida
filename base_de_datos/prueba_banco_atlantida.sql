@@ -233,7 +233,7 @@ END
 GO
 
 -- Insertar pago
-CREATE PROCEDURE spInsertarVenta
+CREATE PROCEDURE spInsertarPago
 	@Id CHAR(36),
 	@Monto DECIMAL(10, 4),
 	@FechaPago DATETIME

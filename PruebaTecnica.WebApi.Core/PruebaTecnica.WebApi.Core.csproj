@@ -48,8 +48,10 @@
     <Compile Include="Entities\Pago.cs" />
     <Compile Include="Entities\Transaccion.cs" />
     <Compile Include="Interfaces\Others\IEncriptadorService.cs" />
+    <Compile Include="Interfaces\Repositories\IComprasRepository.cs" />
     <Compile Include="Interfaces\Repositories\IConfigsRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICuentasRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPagosRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITransaccionesRepository.cs" />
     <Compile Include="Interfaces\Services\IConfigsService.cs" />
     <Compile Include="Interfaces\Services\ICuentasService.cs" />
