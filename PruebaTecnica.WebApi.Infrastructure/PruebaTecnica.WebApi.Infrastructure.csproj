@@ -50,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ConfigsRepository.cs" />
     <Compile Include="Repositories\CuentasRepository.cs" />
+    <Compile Include="Repositories\TransaccionesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PruebaTecnica.WebApi.Core\PruebaTecnica.WebApi.Core.csproj">

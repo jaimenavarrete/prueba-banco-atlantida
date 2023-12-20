@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PruebaTecnica.WebApi.Core.Interfaces.Repositories
+namespace PruebaTecnica.WebApi.Core.Interfaces.Services
 {
-    public interface ITransaccionesRepository
+    public interface ITransaccionesService
     {
         Task<List<Transaccion>> ObtenerTransaccionesPorMes(int anio, int mes);
     }

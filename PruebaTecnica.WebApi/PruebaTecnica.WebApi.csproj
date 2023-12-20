@@ -157,6 +157,7 @@
     <Compile Include="ContainerConfig.cs" />
     <Compile Include="Controllers\ConfigsController.cs" />
     <Compile Include="Controllers\CuentasController.cs" />
+    <Compile Include="Controllers\TransaccionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

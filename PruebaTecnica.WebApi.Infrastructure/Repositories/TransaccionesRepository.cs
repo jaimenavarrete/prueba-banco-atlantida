@@ -10,7 +10,7 @@ namespace PruebaTecnica.WebApi.Infrastructure.Repositories
 {
     public class TransaccionesRepository : ITransaccionesRepository
     {
-        public async Task<List<Transaccion>> ObtenerTransacciones(int anio, int mes)
+        public async Task<List<Transaccion>> ObtenerTransaccionesPorMes(int anio, int mes)
         {
             var transacciones = new List<Transaccion>();
 
