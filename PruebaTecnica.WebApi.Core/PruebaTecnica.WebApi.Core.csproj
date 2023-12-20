@@ -47,12 +47,14 @@
     <Compile Include="Entities\EstadoCuenta.cs" />
     <Compile Include="Entities\Pago.cs" />
     <Compile Include="Entities\Transaccion.cs" />
+    <Compile Include="Interfaces\Others\IEncriptadorService.cs" />
     <Compile Include="Interfaces\Repositories\ICuentasRepository.cs" />
+    <Compile Include="Interfaces\Services\ICuentasService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CuentasService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

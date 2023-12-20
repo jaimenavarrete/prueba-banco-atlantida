@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using PruebaTecnica.WebApi.Core.Interfaces.Repositories;
+using PruebaTecnica.WebApi.Core.Interfaces.Services;
 using PruebaTecnica.WebApi.Core.Interfaces.Tools;
+using PruebaTecnica.WebApi.Core.Services;
 using PruebaTecnica.WebApi.Infrastructure.Others;
 using PruebaTecnica.WebApi.Infrastructure.Repositories;
 using System.Reflection;
@@ -13,6 +15,9 @@ namespace PruebaTecnica.WebApi
     {
         private static ContainerBuilder RegisterDependencies(ContainerBuilder builder)
         {
+            // Servicios
+            builder.RegisterType<CuentasService>().As<ICuentasService>();
+
             // Repositorios
             builder.RegisterType<CuentasRepository>().As<ICuentasRepository>();
 
