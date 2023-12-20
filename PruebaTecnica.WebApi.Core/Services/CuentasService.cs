@@ -19,6 +19,15 @@ namespace PruebaTecnica.WebApi.Core.Services
             _encriptadorService = encriptadorService;
         }
 
+        public async Task<Cuenta> ObtenerCuenta()
+        {
+            var cuenta = await _cuentasRepository.ObtenerCuenta();
+
+            cuenta.NumeroTarjeta = _encriptadorService.Desencriptar(cuenta.NumeroTarjeta);
+
+            return cuenta;
+        }
+
         public async Task<EstadoCuenta> ObtenerEstadoCuenta()
         {
             var estadoCuenta = await _cuentasRepository.ObtenerEstadoCuenta();

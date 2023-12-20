@@ -14,6 +14,15 @@ namespace PruebaTecnica.WebApi.Controllers
             _cuentasService = cuentasService;
         }
 
+        [Route("api/cuenta")]
+        [HttpGet]
+        public async Task<Cuenta> ObtenerCuenta()
+        {
+            var cuenta = await _cuentasService.ObtenerCuenta();
+
+            return cuenta;
+        }
+
         [Route("api/cuenta/estadoCuenta")]
         [HttpGet]
         public async Task<EstadoCuenta> ObtenerEstadoCuenta()
