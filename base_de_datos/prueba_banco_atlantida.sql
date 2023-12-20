@@ -214,7 +214,7 @@ AS
 BEGIN
 	UPDATE Configuraciones SET 
 		PorcentajeInteres = @PorcentajeInteres,
-		@PorcentajeSaldoMinimo = @PorcentajeSaldoMinimo
+		PorcentajeSaldoMinimo = @PorcentajeSaldoMinimo
 END
 GO
 

@@ -42,11 +42,11 @@ namespace PruebaTecnica.WebApi.Infrastructure.Repositories
 
         public async Task ModificarConfigs(Configuraciones configs)
         {
-            string consulta = "EXEC spModificarConfiguraciones";
+            string procedimiento = "spModificarConfiguraciones";
 
             using (var conexion = ConexionDb.ObtenerConexion())
             {
-                var comando = new SqlCommand(consulta, conexion);
+                var comando = new SqlCommand(procedimiento, conexion);
                 comando.CommandType = CommandType.StoredProcedure;
 
                 // Parametros de procedimiento almacenado
