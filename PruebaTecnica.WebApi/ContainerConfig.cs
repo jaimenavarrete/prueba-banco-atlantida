@@ -17,9 +17,11 @@ namespace PruebaTecnica.WebApi
         {
             // Servicios
             builder.RegisterType<CuentasService>().As<ICuentasService>();
+            builder.RegisterType<ConfigsService>().As<IConfigsService>();
 
             // Repositorios
             builder.RegisterType<CuentasRepository>().As<ICuentasRepository>();
+            builder.RegisterType<ConfigsRepository>().As<IConfigsRepository>();
 
             // Otros
             builder.RegisterType<EncriptadorService>().As<IEncriptadorService>();
